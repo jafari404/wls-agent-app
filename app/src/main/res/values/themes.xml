@@ -1,0 +1,7 @@
+<resources>
+    <style name="Theme.WLSAgent" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">#0B6CF0</item>
+        <item name="colorPrimaryDark">#0956C4</item>
+        <item name="colorAccent">#0B6CF0</item>
+    </style>
+</resources>

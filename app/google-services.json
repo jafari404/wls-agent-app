@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "846803898700",
+    "project_id": "wls-live-support",
+    "storage_bucket": "wls-live-support.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:846803898700:android:97cc037e66b0b62543bfe9",
+        "android_client_info": {
+          "package_name": "ir.axio.wlsagent"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyChqm05XesTgjx5jrZKznEsAM2AuKafrkM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

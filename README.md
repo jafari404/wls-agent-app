@@ -11,5 +11,14 @@
 4. برای هر کاربر پشتیبان: در wp-admin وارد پروفایل کاربر شوید → Application Passwords → یک رمز جدید بسازید (مثلاً با نام "Android Agent App") → آن رمز را (نه رمز اصلی) در صفحه ورود اپ وارد کنید.
 5. کاربرانی که باید پشتیبان محسوب شوند باید نقش Administrator داشته باشند، یا در `wp-live-support/includes/class-wls-auth.php` کپبیلیتی `wls_agent` را به نقش دلخواه (مثلاً Editor) اضافه کنید.
 
+## تست‌ها
+اجرای تست‌های واحد و گزارش پوشش کد:
+
+```
+./gradlew jacocoDebugUnitTestReport
+```
+
+گزارش پوشش در `app/build/reports/jacoco/jacocoDebugUnitTestReport/html/index.html` ساخته می‌شود.
+
 ## نکته
 Application Password فقط روی HTTPS کار می‌کند. اگر سایت شما هنوز SSL ندارد، ابتدا آن را فعال کنید.

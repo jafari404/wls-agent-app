@@ -23,8 +23,8 @@ object RetrofitClient {
      */
     private class BasicAuthInterceptor(private val ctx: Context) : Interceptor {
         override fun intercept(chain: Interceptor.Chain): Response {
-            val username = SecureStore.username(ctx) ?: ""
-            val password = SecureStore.appPassword(ctx) ?: ""
+            val username = SecureStore.username(ctx) ?: throw MissingCredentialsException()
+            val password = SecureStore.appPassword(ctx) ?: throw MissingCredentialsException()
             val credential = Base64.encodeToString("$username:$password".toByteArray(), Base64.NO_WRAP)
             val request = chain.request().newBuilder()
                 .addHeader("Authorization", "Basic $credential")

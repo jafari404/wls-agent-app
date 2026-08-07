@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">پشتیبان آنلاین</string>
+    <string name="guest_default_name">کاربر مهمان</string>
 </resources>

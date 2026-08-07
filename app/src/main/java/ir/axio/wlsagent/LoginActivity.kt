@@ -6,9 +6,8 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.lifecycleScope
 import ir.axio.wlsagent.network.RetrofitClient
-import kotlinx.coroutines.launch
+import ir.axio.wlsagent.network.apiCall
 
 class LoginActivity : AppCompatActivity() {
 
@@ -37,15 +36,13 @@ class LoginActivity : AppCompatActivity() {
             RetrofitClient.reset()
 
             // اعتبارسنجی با یک درخواست آزمایشی؛ اگر 401/403 برگردد یعنی اطلاعات اشتباه است.
-            lifecycleScope.launch {
-                runCatching {
-                    RetrofitClient.api(this@LoginActivity).listConversations()
-                }.onSuccess {
+            apiCall({ it.listConversations() }) { result ->
+                result.onSuccess {
                     goToConversations()
                 }.onFailure {
-                    SecureStore.clear(this@LoginActivity)
+                    SecureStore.clear(this)
                     RetrofitClient.reset()
-                    Toast.makeText(this@LoginActivity, "ورود ناموفق بود. اطلاعات را بررسی کنید.", Toast.LENGTH_LONG).show()
+                    Toast.makeText(this, "ورود ناموفق بود. اطلاعات را بررسی کنید.", Toast.LENGTH_LONG).show()
                 }
             }
         }

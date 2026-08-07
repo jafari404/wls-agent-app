@@ -15,6 +15,11 @@ object RetrofitClient {
 
     private val baseUrl = "${BuildConfig.SITE_BASE_URL}/wp-json/wls/v1/"
 
+    init {
+        // Basic Auth credentials must never be sent over cleartext HTTP.
+        require(baseUrl.startsWith("https://")) { "SITE_BASE_URL must use HTTPS" }
+    }
+
     private var apiInstance: ApiService? = null
 
     /**
@@ -36,11 +41,14 @@ object RetrofitClient {
     fun api(context: Context): ApiService {
         if (apiInstance != null) return apiInstance!!
 
-        val logging = HttpLoggingInterceptor().apply { level = HttpLoggingInterceptor.Level.BASIC }
-        val client = OkHttpClient.Builder()
+        val builder = OkHttpClient.Builder()
             .addInterceptor(BasicAuthInterceptor(context.applicationContext))
-            .addInterceptor(logging)
-            .build()
+        if (BuildConfig.DEBUG) {
+            builder.addInterceptor(
+                HttpLoggingInterceptor().apply { level = HttpLoggingInterceptor.Level.BASIC }
+            )
+        }
+        val client = builder.build()
 
         apiInstance = Retrofit.Builder()
             .baseUrl(baseUrl)

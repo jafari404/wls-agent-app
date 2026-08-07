@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">پشتیبان آنلاین</string>
+
+    <string name="error_network">اتصال به سرور برقرار نشد. اینترنت خود را بررسی کنید.</string>
+    <string name="error_unauthorized">ورود منقضی یا نامعتبر است. دوباره وارد شوید.</string>
+    <string name="error_server">خطای سرور. کمی بعد دوباره تلاش کنید.</string>
+    <string name="error_rejected">درخواست از سوی سرور انجام نشد.</string>
+    <string name="error_unexpected">خطای غیرمنتظره رخ داد.</string>
+
+    <string name="error_login_failed">ورود ناموفق بود. اطلاعات را بررسی کنید.</string>
+    <string name="error_credentials_required">نام‌کاربری و Application Password را وارد کنید</string>
+    <string name="error_credentials_not_saved">ذخیره اطلاعات ورود ممکن نشد.</string>
+    <string name="error_invalid_conversation">گفتگوی نامعتبر است.</string>
+    <string name="error_push_registration">ثبت اعلان‌های پوش ناموفق بود.</string>
 </resources>
